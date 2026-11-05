@@ -58,78 +58,97 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- hero: fountain pen writes the letter ---------- */
-  var letter = document.getElementById("letter");
+  /* ---------- hero: a real fountain pen writes the letter on the photo ---------- */
+  var stage = document.getElementById("stage");
   var pen = document.getElementById("pen");
+  var poem = document.getElementById("poem");
   var lines = Array.prototype.slice.call(document.querySelectorAll("#poem .ln"));
-  var PEN = 150;                       // rendered pen size; nib tip = bottom-left corner
   var penPos = { x: 0, y: 0, r: 0 };
 
-  function tf(p) { return "translate(" + p.x + "px," + (p.y - PEN) + "px) rotate(" + p.r + "deg)"; }
+  // nib tip = bottom-left corner of the pen image (transform-origin 0 100%)
+  function tf(p) { return "translate(" + p.x + "px," + (p.y - pen.offsetHeight) + "px) rotate(" + p.r + "deg)"; }
   function place(p) { penPos = p; pen.style.transform = tf(p); }
-  function restPos() { return { x: 18, y: letter.clientHeight + 58, r: 30 }; }
-  function lineStart(ln) { return { x: ln.offsetLeft, y: ln.offsetTop + ln.offsetHeight * 0.8, r: 0 }; }
-
-  function finishAll() {
-    lines.forEach(function (ln) { ln.classList.add("done"); });
-    place(restPos());
+  function rel(el) {
+    var r = el.getBoundingClientRect(), s = stage.getBoundingClientRect();
+    return { x: r.left - s.left, y: r.top - s.top, w: r.width, h: r.height };
   }
+  function lineStart(ln) { var b = rel(ln); return { x: b.x, y: b.y + b.h * 0.7, r: 0 }; }
+  function restPos() {
+    var b = rel(poem), s = stage.getBoundingClientRect();
+    return { x: b.x + b.w + s.width * 0.012, y: s.height * 0.44, r: -8 };
+  }
+  function offstage() { var s = stage.getBoundingClientRect(); return { x: s.width * 0.42, y: -s.height * 0.05, r: -6 }; }
+
+  function finishAll() { lines.forEach(function (ln) { ln.classList.add("done"); }); place(restPos()); }
 
   function move(to, ms) {
     var from = penPos;
-    var mid = { x: (from.x + to.x) / 2, y: Math.min(from.y, to.y) - 16, r: (from.r + to.r) / 2 };
-    var a = pen.animate([{ transform: tf(from) }, { transform: tf(mid) }, { transform: tf(to) }],
-      { duration: ms, easing: "ease-in-out", fill: "forwards" });
-    return a.finished.then(function () { place(to); a.cancel(); });
+    var mid = { x: (from.x + to.x) / 2, y: Math.min(from.y, to.y) - stage.clientWidth * 0.008, r: (from.r + to.r) / 2 };
+    var an = pen.animate([{ transform: tf(from) }, { transform: tf(mid) }, { transform: tf(to) }],
+      { duration: ms, easing: "cubic-bezier(.45,.05,.35,1)", fill: "forwards" });
+    return an.finished.then(function () { place(to); an.cancel(); });
   }
 
   function write(ln) {
-    var start = lineStart(ln);
-    var w = ln.offsetWidth;
-    var dur = Math.max(650, ln.textContent.length * 46);
+    var st = lineStart(ln), w = rel(ln).w;
+    var n = ln.textContent.length;
+    var dur = Math.max(650, n * 52);
+    var steps = Math.max(8, Math.round(n * 0.8));
+    var amp = stage.clientWidth * 0.0016;
     var frames = [];
-    var steps = Math.max(6, Math.round(ln.textContent.length / 2));
     for (var i = 0; i <= steps; i++) {
       var k = i / steps;
-      var wob = (i % 2 ? -3 : 2) * (i === 0 || i === steps ? 0 : 1);
-      frames.push({ transform: tf({ x: start.x + w * k, y: start.y + wob, r: wob * 0.6 }) });
+      var edge = i === 0 || i === steps;
+      var wob = edge ? 0 : Math.sin(i * 2.3) * amp + (i % 2 ? -amp : amp) * 0.6;
+      frames.push({ transform: tf({ x: st.x + w * k, y: st.y + wob, r: edge ? 0 : Math.sin(i * 1.7) * 1.6 }) });
     }
     var pa = pen.animate(frames, { duration: dur, easing: "linear", fill: "forwards" });
-    var la = ln.animate([{ clipPath: "inset(-30% 100% -40% 0)" }, { clipPath: "inset(-30% -8% -40% 0)" }],
+    var la = ln.animate([{ clipPath: "inset(-30% 100% -40% 0)" }, { clipPath: "inset(-30% -6% -40% 0)" }],
       { duration: dur, easing: "linear", fill: "forwards" });
     return Promise.all([pa.finished, la.finished]).then(function () {
       ln.classList.add("done"); la.cancel();
-      place({ x: start.x + w, y: start.y, r: 0 }); pa.cancel();
+      place({ x: st.x + w, y: st.y, r: 0 }); pa.cancel();
     });
   }
 
   function runPen() {
-    if (!letter || !pen || !lines.length) return;
+    if (!stage || !pen || !lines.length) return;
     if (reduceMotion || !pen.animate) { finishAll(); return; }
-    place({ x: letter.clientWidth + 40, y: -20, r: 10 });
-    var chain = new Promise(function (r) { setTimeout(r, 500); });
-    lines.forEach(function (ln) {
-      chain = chain.then(function () { return move(lineStart(ln), 380); })
+    place(offstage());
+    var chain = new Promise(function (r) { setTimeout(r, 400); });
+    lines.forEach(function (ln, i) {
+      chain = chain.then(function () { return move(lineStart(ln), i === 0 ? 900 : 360); })
                    .then(function () { return write(ln); });
     });
-    chain.then(function () { return move(restPos(), 900); }).catch(finishAll);
+    chain.then(function () { return move(restPos(), 1000); }).catch(finishAll);
   }
   var started = false;
-  function start() { if (!started) { started = true; runPen(); } }
-  // begin once fonts are ready (so line widths are right) and the letter is on screen
+  function start() { if (!started) { started = true; runPen(); playVideo(); } }
   var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  var penLoaded = new Promise(function (r) { if (pen && !pen.complete) { pen.onload = r; pen.onerror = r; } else r(); });
   var timeout = new Promise(function (r) { setTimeout(r, 2500); });
   var visible = new Promise(function (r) {
-    if (!("IntersectionObserver" in window) || !letter) { r(); return; }
+    if (!("IntersectionObserver" in window) || !stage) { r(); return; }
     var vo = new IntersectionObserver(function (es) {
       if (es.some(function (e) { return e.isIntersecting; })) { vo.disconnect(); r(); }
     }, { threshold: 0.35 });
-    vo.observe(letter);
+    vo.observe(stage);
   });
-  Promise.all([Promise.race([fontsReady, timeout]), visible]).then(start);
+  Promise.all([Promise.race([Promise.all([fontsReady, penLoaded]), timeout]), visible]).then(start);
   window.addEventListener("resize", function () {
     if (lines.every(function (l) { return l.classList.contains("done"); })) place(restPos());
   });
+
+  /* living photo: steam + swaying shadows (desktop only, when motion is welcome) */
+  function playVideo() {
+    var v = document.getElementById("heroVideo");
+    if (!v || reduceMotion) return;
+    if (!window.matchMedia("(min-width: 821px)").matches) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    v.preload = "auto";
+    v.addEventListener("playing", function () { v.classList.add("playing"); }, { once: true });
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  }
 
   /* ---------- get-involved buttons preselect topic ---------- */
   var topic = document.getElementById("cTopic");
