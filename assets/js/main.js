@@ -59,16 +59,20 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- lightbox ---------- */
+  /* ---------- lightbox (any img.zoom; data-full overrides src) ---------- */
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lbImg");
-  document.querySelectorAll(".g-item").forEach(function (item) {
-    item.addEventListener("click", function () {
-      var img = item.querySelector("img");
-      lbImg.src = item.dataset.full;
-      lbImg.alt = img ? img.alt : "";
-      if (lb.showModal) lb.showModal(); else window.open(item.dataset.full, "_blank");
-    });
+  document.querySelectorAll("img.zoom").forEach(function (img) {
+    img.setAttribute("tabindex", "0");
+    img.setAttribute("role", "button");
+    function open() {
+      var src = img.dataset.full || img.currentSrc || img.src;
+      lbImg.src = src;
+      lbImg.alt = img.alt;
+      if (lb.showModal) lb.showModal(); else window.open(src, "_blank");
+    }
+    img.addEventListener("click", open);
+    img.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
   });
   document.getElementById("lbClose").addEventListener("click", function () { lb.close(); });
   lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
