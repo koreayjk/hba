@@ -16,8 +16,9 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&family=Nanum+Myeongjo:wght@700;800&family=Nanum+Pen+Script&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&family=Nanum+Myeongjo:wght@700;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -30,10 +31,11 @@
       <span class="brand-text"><strong>HBA</strong><small data-i18n="brandSub">Human Bridge Ambassador</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#mission" data-i18n="navMission">Mission</a>
+      <a href="#story" data-i18n="navStory">Our Story</a>
       <a href="#who" data-i18n="navWho">Who It's For</a>
       <a href="#bridges" data-i18n="navBridges">Bridges</a>
-      <a href="#founder" data-i18n="navPeople">Our People</a>
+      <a href="#founder" data-i18n="navPeople">Founder</a>
+      <a href="#one" data-i18n="navOne">We Are One</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
       <a href="#involved" class="btn btn-gold btn-sm" data-i18n="navJoin">Get Involved</a>
     </nav>
@@ -51,29 +53,132 @@
 
 <main id="main">
 
-<!-- ============ HERO ============ -->
-<section class="hero" aria-label="We keep creating our story today, too.">
-  <picture>
-    <source srcset="assets/img/hero-story.webp" type="image/webp">
-    <img src="assets/img/hero-story.jpg" alt="A handmade paper book with the poem 'Does the sun ask itself…' beside the words: We keep creating our story today, too. — HBA Founder" width="1536" height="1024" fetchpriority="high">
-  </picture>
+<!-- ============ HERO: a letter, a fountain pen, a cup of coffee ============ -->
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="sunlight" aria-hidden="true">
+    <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="leaf l4"></span><span class="leaf l5"></span>
+    <span class="glow g1"></span><span class="glow g2"></span>
+  </div>
+
+  <div class="wrap hero-inner">
+    <div class="desk">
+      <div class="letter" id="letter">
+        <span class="ring" aria-hidden="true"></span>
+        <div class="poem" id="poem" role="img" aria-label="Does the sun ask itself, Am I good? Am I worthwhile? Is there enough of me? No, it burns and it shines. Does the sun ask itself, What does the moon think of me? How does Mars feel about me today? No, it burns, it shines. Does the sun ask itself, Am I as big as other suns in other galaxies? No, it burns, it shines.">
+          <span class="ln" data-i18n="poem1">Does the sun ask itself,</span>
+          <span class="ln" data-i18n="poem2">“Am I good? Am I worthwhile?</span>
+          <span class="ln" data-i18n="poem3">Is there enough of me?”</span>
+          <span class="ln em" data-i18n="poem4">No, it burns and it shines.</span>
+          <span class="ln gap" data-i18n="poem5">Does the sun ask itself,</span>
+          <span class="ln" data-i18n="poem6">“What does the moon think</span>
+          <span class="ln" data-i18n="poem7">of me? How does Mars feel</span>
+          <span class="ln" data-i18n="poem8">about me today?”</span>
+          <span class="ln em" data-i18n="poem9">No, it burns, it shines.</span>
+          <span class="ln gap" data-i18n="poem10">Does the sun ask itself,</span>
+          <span class="ln" data-i18n="poem11">“Am I as big as other suns</span>
+          <span class="ln" data-i18n="poem12">in other galaxies?”</span>
+          <span class="ln em" data-i18n="poem13">No, it burns, it shines.</span>
+        </div>
+        <!-- fountain pen: nib tip sits at the bottom-left corner of the svg -->
+        <svg class="pen" id="pen" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="penBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2a4274"/><stop offset=".45" stop-color="#0c1c3a"/><stop offset="1" stop-color="#040b1a"/>
+            </linearGradient>
+            <linearGradient id="nibGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f6dc98"/><stop offset=".5" stop-color="#c9973c"/><stop offset="1" stop-color="#8f6420"/>
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-42 0 200)">
+            <path d="M0 200 L20 191 L42 191 L42 209 L20 209 Z" fill="url(#nibGold)"/>
+            <path d="M4 200 L32 200" stroke="#5a3d12" stroke-width="1.2"/>
+            <circle cx="28" cy="200" r="2.2" fill="#5a3d12"/>
+            <rect x="42" y="189" width="30" height="22" rx="4" fill="#111d36"/>
+            <rect x="70" y="187" width="8" height="26" rx="2" fill="url(#nibGold)"/>
+            <rect x="78" y="186" width="176" height="28" rx="13" fill="url(#penBody)"/>
+            <rect x="122" y="184" width="74" height="4.5" rx="2" fill="url(#nibGold)"/>
+            <rect x="86" y="190" width="156" height="4" rx="2" fill="#ffffff" opacity=".18"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- coffee cup, seen from above -->
+      <div class="coffee" aria-hidden="true">
+        <svg class="cup" viewBox="0 0 240 240">
+          <defs>
+            <radialGradient id="saucer" cx=".45" cy=".4"><stop offset="0" stop-color="#fffdf8"/><stop offset=".8" stop-color="#efe6d8"/><stop offset="1" stop-color="#d9cbb4"/></radialGradient>
+            <radialGradient id="coffeeG" cx=".42" cy=".38"><stop offset="0" stop-color="#9a6438"/><stop offset=".55" stop-color="#6e3f1e"/><stop offset="1" stop-color="#3f210c"/></radialGradient>
+            <radialGradient id="cupG" cx=".4" cy=".35"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9e0d1"/></radialGradient>
+          </defs>
+          <circle cx="120" cy="120" r="112" fill="url(#saucer)"/>
+          <circle cx="120" cy="120" r="90" fill="none" stroke="#d9cbb3" stroke-width="2" opacity=".6"/>
+          <rect x="178" y="104" width="54" height="32" rx="16" fill="url(#cupG)" stroke="#d8ccb7" stroke-width="2"/>
+          <circle cx="120" cy="120" r="74" fill="url(#cupG)" stroke="#d8ccb7" stroke-width="2"/>
+          <circle cx="120" cy="120" r="62" fill="url(#coffeeG)"/>
+          <circle cx="120" cy="120" r="62" fill="none" stroke="#c89c6c" stroke-width="5" opacity=".55"/>
+          <path d="M120 147 C96 130 92 112 104 104 C112 99 119 104 120 111 C121 104 128 99 136 104 C148 112 144 130 120 147 Z" fill="#ead6b8" opacity=".95"/>
+          <path d="M120 140 C106 129 104 117 110 112" fill="none" stroke="#c99f72" stroke-width="2" opacity=".6"/>
+          <ellipse cx="98" cy="96" rx="16" ry="7" fill="#fff" opacity=".25" transform="rotate(-30 98 96)"/>
+        </svg>
+        <svg class="steam" viewBox="0 0 160 220">
+          <path class="s s1" d="M58 210 C38 175 80 150 58 115 C38 82 76 60 58 20"/>
+          <path class="s s2" d="M82 210 C62 175 104 150 82 115 C62 82 100 60 82 20"/>
+          <path class="s s3" d="M106 210 C86 175 128 150 106 115 C86 82 124 60 106 20"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-copy">
+      <span class="rule" aria-hidden="true"></span>
+      <h1 id="heroTitle" class="hero-title"><span data-i18n="heroA">We keep creating</span><br><em data-i18n="heroB">our story</em> <span data-i18n="heroC">today, too.</span></h1>
+      <svg class="swash" viewBox="0 0 400 30" aria-hidden="true"><path d="M2 22 C90 2 180 30 250 14 C300 4 350 8 398 16" fill="none" stroke="#a88a64" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <p class="sign">— <span data-i18n="heroSign">HBA Founder</span></p>
+      <p class="hero-sub" data-i18n="heroSub">Pour a cup of coffee and stay a while. Here, every story is heard — and every story can become a bridge.</p>
+      <div class="cta-row">
+        <a href="#involved" class="btn btn-navy" data-i18n="heroCta1">Share Your Story</a>
+        <a href="#story" class="btn btn-ghost" data-i18n="heroCta2">Meet HBA ↓</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="intro">
-  <div class="wrap intro-inner">
-    <p class="eyebrow" data-i18n="introEyebrow">Listen · Understand · Connect · Bridge</p>
-    <h1 class="display">
-      <span data-i18n="introH1a">Everyone has a story.</span><br>
-      <em class="script gold" data-i18n="introH1b">Everyone deserves to be heard.</em>
-    </h1>
-    <p class="lead" data-i18n="introLead">HBA — Human Bridge Ambassador — is a judgment-free community that discovers people, listens to their stories, and connects them: mentors with mentees, people with resources, and one human heart with another.</p>
-    <div class="cta-row">
-      <a href="#involved" class="btn btn-navy" data-i18n="ctaFind">Find a Bridge (Mentee)</a>
-      <a href="#involved" class="btn btn-outline" data-i18n="ctaBe">Become an Ambassador (Mentor)</a>
+<!-- ============ EVERYONE HAS A STORY (banner, rebuilt) ============ -->
+<section class="story" id="story">
+  <div class="story-card reveal">
+    <div class="story-photo">
+      <img src="assets/img/bridge-founder.webp" alt="Elizabeth Kim, founder of HBA, smiling in front of the Bay Bridge at sunset" width="715" height="680" loading="lazy">
     </div>
-    <figure class="banner reveal">
-      <img class="zoom" src="assets/img/banner-founder.webp" alt="HBA banner: Everyone Has a Story. Listen. Connect. Bridge. Love, heartbreak, family, faith, loneliness, hope, everyday life. California, USA — English, Español, 한국어. You are not alone. You are heard." width="1600" height="640" loading="lazy">
-    </figure>
+    <div class="story-panel">
+      <div class="lockup">
+        <span class="big-hba">HBA</span>
+        <span class="lockup-sub"><span>Human</span><span>Bridge</span><span>Ambassador</span></span>
+        <svg class="lockup-bridge" viewBox="0 0 64 40" aria-hidden="true"><use href="#bridge"/></svg>
+      </div>
+      <h2 class="script story-script" data-i18n="storyScript">Everyone Has a Story.</h2>
+      <p class="story-motto" data-i18n="storyMotto">Listen. Connect. Bridge.</p>
+      <ul class="topics" aria-label="Topics">
+        <li><svg><use href="#i-heart"/></svg><span data-i18n="tLove">Love</span></li>
+        <li><svg><use href="#i-heartbreak"/></svg><span data-i18n="tHeart">Heartbreak</span></li>
+        <li><svg><use href="#i-family"/></svg><span data-i18n="tFamily">Family</span></li>
+        <li><svg><use href="#i-pray"/></svg><span data-i18n="tFaith">Faith</span></li>
+        <li><svg><use href="#i-person"/></svg><span data-i18n="tLonely">Loneliness</span></li>
+        <li><svg><use href="#i-sun"/></svg><span data-i18n="tHope">Hope</span></li>
+        <li><svg><use href="#i-cup"/></svg><span data-i18n="tLife">Everyday Life</span></li>
+      </ul>
+    </div>
+    <div class="story-strip">
+      <span><svg><use href="#i-pin"/></svg><span data-i18n="loc">California, USA</span> 🇺🇸</span>
+      <span><svg><use href="#i-chat"/></svg>English</span>
+      <span><svg><use href="#i-chat"/></svg>Español</span>
+      <span><svg><use href="#i-chat"/></svg>한국어</span>
+      <span class="script strip-script" data-i18n="notAlone">You are not alone. You are heard.</span>
+    </div>
+  </div>
+
+  <div class="wrap intro">
+    <p class="eyebrow" data-i18n="introEyebrow">Listen · Understand · Connect · Bridge</p>
+    <p class="intro-big"><span data-i18n="introA">Everyone has a story.</span> <span class="gold" data-i18n="introB">Everyone deserves to be heard.</span> <span data-i18n="introC">Everyone is welcome.</span></p>
+    <p class="lead" data-i18n="introLead">HBA — Human Bridge Ambassador — is a judgment-free community that discovers people, listens to their stories, and connects them: mentors with mentees, people with resources, and one human heart with another.</p>
   </div>
 </section>
 
@@ -82,69 +187,91 @@
   <div class="wrap mv">
     <div class="mv-card reveal">
       <p class="eyebrow gold" data-i18n="missionLabel">Our Mission</p>
-      <p class="mv-text" data-i18n="missionText">To listen without judgment, understand with empathy, and connect people to real resources and to each other — building bridges of hope for a better tomorrow.</p>
+      <p class="mv-text" data-i18n="missionText">HBA exists to listen without judgment, understand with empathy, and connect people to real resources and each other — to build bridges of hope for a better tomorrow.</p>
     </div>
-    <div class="mv-divider" aria-hidden="true">
-      <svg viewBox="0 0 64 40"><use href="#bridge"/></svg>
-    </div>
+    <div class="mv-divider" aria-hidden="true"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg></div>
     <div class="mv-card reveal">
       <p class="eyebrow gold" data-i18n="visionLabel">Our Vision</p>
-      <p class="mv-text" data-i18n="visionText">A world where different lives and different stories carry equal human worth — one heart, one journey, one human family.</p>
+      <p class="mv-text" data-i18n="visionText">Different lives. Different experiences. Equal human worth. One heart, one journey, one human family.</p>
     </div>
   </div>
   <p class="motto reveal" data-i18n="motto">Listen. Connect. Bridge.</p>
 </section>
 
-<!-- ============ WHO IS HBA FOR ============ -->
-<section class="section cream" id="who">
+<!-- ============ WHO ARE YOU ============ -->
+<section class="section cream who" id="who">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow" data-i18n="whoEyebrow">Pro like an amateur. Amateur like a pro.</p>
+    <div class="paradox reveal">
+      <p><b class="gold" data-i18n="px1a">PRO</b> <span data-i18n="px1b">like an amateur.</span></p>
+      <p class="xl"><b data-i18n="px2a">AMATEUR</b> <span data-i18n="px2b">like a pro.</span></p>
+      <p><b class="gold" data-i18n="px3a">MAINSTREAM</b> <span data-i18n="px3b">like an outsider.</span></p>
+      <p><b class="gold" data-i18n="px4a">OUTSIDER</b> <span data-i18n="px4b">like the mainstream.</span></p>
+    </div>
+    <h2 class="who-q reveal"><span class="line"></span><span data-i18n="whoQ">Who are you?</span><span class="line"></span></h2>
+  </div>
+  <figure class="wide-photo reveal">
+    <img src="assets/img/group-sitting.webp" alt="A diverse group of people sitting together by the bay at sunset, talking and smiling" width="1024" height="349" loading="lazy">
+  </figure>
+  <div class="wrap">
+    <div class="trio">
+      <div class="trio-item reveal"><span class="ic"><svg><use href="#i-flip"/></svg></span><b data-i18n="a1t">FLIP</b><span data-i18n="a1d">the way we see people.</span></div>
+      <div class="trio-item reveal"><span class="ic"><svg><use href="#i-tag"/></svg></span><b data-i18n="a2t">TAKE OFF</b><span data-i18n="a2d">the labels.</span></div>
+      <div class="trio-item reveal"><span class="ic"><svg><use href="#i-heart-fill"/></svg></span><b data-i18n="a3t">MEET</b><span data-i18n="a3d">heart to heart.</span></div>
+    </div>
+
+    <div class="door-line reveal">
+      <div>
+        <p data-i18n="door1">We go where you need us.</p>
+        <p data-i18n="door2">We stay where love is needed.</p>
+        <p class="gold" data-i18n="door3">And our door is always open when you want to come.</p>
+      </div>
+      <svg class="door-ic" aria-hidden="true"><use href="#i-door"/></svg>
+    </div>
+
+    <div class="worth reveal">
+      <svg class="worth-bridge" viewBox="0 0 64 40" aria-hidden="true"><use href="#bridge"/></svg>
+      <p><span data-i18n="worth1">Different stories.</span><br><span data-i18n="worth2">Equal human worth.</span><br><b class="gold" data-i18n="worth3">Together, we bridge lives.</b></p>
+    </div>
+
+    <div class="section-head reveal persona-head">
+      <p class="eyebrow" data-i18n="whoEyebrow">No labels. No judgment. Just human.</p>
       <h2 class="title"><span data-i18n="whoTitleA">Who is </span><em class="script gold">HBA</em><span data-i18n="whoTitleB"> for?</span></h2>
-      <p class="sub" data-i18n="whoSub">No labels. No judgment. Just human. If you have a story — or want to help someone write their next chapter — there's a seat for you on this bridge.</p>
     </div>
-    <div class="who-layout">
-    <figure class="poster-frame reveal">
-      <img class="zoom" src="assets/img/poster-who-are-you.webp" alt="Poster: Pro like an amateur. Amateur like a pro. Mainstream like an outsider. Outsider like the mainstream. Who are you?" width="1024" height="1536" loading="lazy">
-    </figure>
     <div class="persona-grid">
-      <article class="persona reveal">
-        <div class="persona-icon" aria-hidden="true">👂</div>
-        <h3 data-i18n="p1t">The One Who Needs to Be Heard</h3>
-        <p data-i18n="p1d">You're carrying something heavy — loneliness, heartbreak, a crossroads — and you just want someone to listen.</p>
-      </article>
-      <article class="persona reveal">
-        <div class="persona-icon" aria-hidden="true">🌱</div>
-        <h3 data-i18n="p2t">The New Beginner</h3>
-        <p data-i18n="p2d">A new country, a new job, a new business, a new season of life. You need someone who has walked this road before.</p>
-      </article>
-      <article class="persona reveal">
-        <div class="persona-icon" aria-hidden="true">🔄</div>
-        <h3 data-i18n="p3t">The Second-Chancer</h3>
-        <p data-i18n="p3d">Failure, rock bottom, starting again. Your past is not your ending — it's the forge where your diamond is made.</p>
-      </article>
-      <article class="persona reveal">
-        <div class="persona-icon" aria-hidden="true">🌉</div>
-        <h3 data-i18n="p4t">The Hidden Ambassador</h3>
-        <p data-i18n="p4d">You've lived through it, learned from it, and want to give back. Your real-life experience is exactly what someone needs.</p>
-      </article>
-    </div>
+      <article class="persona reveal"><span class="ic"><svg><use href="#i-ear"/></svg></span><h3 data-i18n="p1t">The One Who Needs to Be Heard</h3><p data-i18n="p1d">You're carrying something heavy — loneliness, heartbreak, a crossroads — and you just want someone to listen.</p></article>
+      <article class="persona reveal"><span class="ic"><svg><use href="#i-sprout"/></svg></span><h3 data-i18n="p2t">The New Beginner</h3><p data-i18n="p2d">A new country, a new job, a new business, a new season of life. You need someone who has walked this road before.</p></article>
+      <article class="persona reveal"><span class="ic"><svg><use href="#i-diamond"/></svg></span><h3 data-i18n="p3t">The Second-Chancer</h3><p data-i18n="p3d">Failure, rock bottom, starting again. Your past is not your ending — it's the forge where your diamond is made.</p></article>
+      <article class="persona reveal"><span class="ic"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg></span><h3 data-i18n="p4t">The Hidden Ambassador</h3><p data-i18n="p4d">You've lived through it, learned from it, and want to give back. Your real-life experience is exactly what someone needs.</p></article>
     </div>
   </div>
 </section>
 
-<!-- ============ FLIP ============ -->
-<section class="flip" aria-labelledby="flipTitle">
-  <h2 id="flipTitle" class="sr-only">Everyone is welcome</h2>
-  <div class="flip-poster">
-    <img class="zoom" src="assets/img/poster-welcome.webp" alt="Poster: EVERYONE IS WELCOME, mirrored as WELCOME IS EVERYONE. Different lives. Different stories. One human family. Flip your perspective. See people, not labels." width="1536" height="1024" loading="lazy">
+<!-- ============ EVERYONE IS WELCOME (flip, rebuilt) ============ -->
+<section class="welcome" aria-labelledby="welcomeTitle">
+  <div class="welcome-sky">
+    <svg class="welcome-mark" viewBox="0 0 64 40" aria-hidden="true"><use href="#bridge"/></svg>
+    <h2 id="welcomeTitle" class="welcome-word">
+      <span class="w-navy" data-i18n="wA">EVERYONE</span>
+      <span class="w-is"><i></i><span data-i18n="wIs">IS</span><i></i></span>
+      <span class="w-gold" data-i18n="wB">WELCOME</span>
+    </h2>
   </div>
-  <div class="flip-actions">
-    <div class="wrap action-grid">
-      <div class="action reveal"><b data-i18n="a1t">FLIP</b><span data-i18n="a1d">the way we see people.</span></div>
-      <div class="action reveal"><b data-i18n="a2t">TAKE OFF</b><span data-i18n="a2d">the labels.</span></div>
-      <div class="action reveal"><b data-i18n="a3t">MEET</b><span data-i18n="a3d">heart to heart.</span></div>
+  <div class="welcome-band">
+    <img src="assets/img/welcome-band.webp" alt="People of many kinds walking together across a bridge toward the rising sun" width="1536" height="110" loading="lazy">
+  </div>
+  <p class="band-cap" data-i18n="wCap">Different lives. Different stories. One human family.</p>
+  <div class="welcome-water" aria-hidden="true">
+    <img class="reflect" src="assets/img/welcome-band.webp" alt="" width="1536" height="110" loading="lazy">
+    <div class="welcome-word mirrored">
+      <span class="w-light" data-i18n="wA">EVERYONE</span>
+      <span class="w-is"><span data-i18n="wIs">IS</span></span>
+      <span class="w-gold" data-i18n="wB">WELCOME</span>
     </div>
+  </div>
+  <div class="welcome-foot">
+    <svg class="heart-line" aria-hidden="true"><use href="#i-heart"/></svg>
+    <p class="gold" data-i18n="wFlip">Flip your perspective.</p>
+    <p data-i18n="wSee">See people. Not labels.</p>
   </div>
 </section>
 
@@ -156,10 +283,10 @@
       <h2 class="title" data-i18n="howTitle">Our 4-Step Process in Every Bridge</h2>
     </div>
     <ol class="steps">
-      <li class="step reveal"><span class="step-n">1</span><h3 data-i18n="s1t">Listen</h3><p data-i18n="s1d">We listen to your story without judgment.</p></li>
-      <li class="step reveal"><span class="step-n">2</span><h3 data-i18n="s2t">Share Experience</h3><p data-i18n="s2d">We share real-life experiences from our own journey.</p></li>
-      <li class="step reveal"><span class="step-n">3</span><h3 data-i18n="s3t">Connect</h3><p data-i18n="s3d">We connect you to people, mentors, resources, or community that can help.</p></li>
-      <li class="step reveal"><span class="step-n">4</span><h3 data-i18n="s4t">Bridge</h3><p data-i18n="s4d">We walk with you as you cross to your next chapter.</p></li>
+      <li class="step reveal"><span class="step-n"><svg><use href="#i-ear"/></svg></span><small>01</small><h3 data-i18n="s1t">Listen</h3><p data-i18n="s1d">We listen to your story without judgment.</p></li>
+      <li class="step reveal"><span class="step-n"><svg><use href="#i-chat"/></svg></span><small>02</small><h3 data-i18n="s2t">Share Experience</h3><p data-i18n="s2d">We share real-life experiences from our own journey.</p></li>
+      <li class="step reveal"><span class="step-n"><svg><use href="#i-person"/></svg></span><small>03</small><h3 data-i18n="s3t">Connect</h3><p data-i18n="s3d">We connect you to people, resources, or community that can help.</p></li>
+      <li class="step reveal"><span class="step-n"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg></span><small>04</small><h3 data-i18n="s4t">Bridge</h3><p data-i18n="s4d">We walk with you as you cross to your next chapter.</p></li>
     </ol>
   </div>
 </section>
@@ -168,34 +295,25 @@
 <section class="section white" id="bridges">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow" data-i18n="brEyebrow">All areas are life coaching based on real experiences</p>
+      <p class="eyebrow" data-i18n="brEyebrow">All areas are life coaching based on my own experiences</p>
       <h2 class="title" data-i18n="brTitle">Our Bridges</h2>
-      <p class="sub" data-i18n="brSub">Every bridge is built from lived experience — every success, failure, tear, and lesson. Real experiences. Real coaching. Real connection.</p>
+      <p class="sub" data-i18n="brSub">Everything I share comes from my own life — every success, failure, tear, and lesson. Real experiences. Real coaching. Real connection.</p>
     </div>
     <div class="bridge-grid">
       <article class="bridge reveal"><span class="b-n">01</span><h3 data-i18n="b1t">Life &amp; Transition</h3><p data-i18n="b1d">Life changes, failure, comeback, new beginnings, purpose.</p></article>
       <article class="bridge reveal"><span class="b-n">02</span><h3 data-i18n="b2t">Love &amp; Heartbreak</h3><p data-i18n="b2d">Relationships, divorce, loss, healing a broken heart.</p></article>
-      <article class="bridge reveal"><span class="b-n">03</span><h3 data-i18n="b3t">Family &amp; Parenting</h3><p data-i18n="b3d">Parenting, family conflict, single moms &amp; dads, restoration.</p></article>
+      <article class="bridge reveal"><span class="b-n">03</span><h3 data-i18n="b3t">Family &amp; Parenting</h3><p data-i18n="b3d">Parenting, family conflict, single moms &amp; dads, healing &amp; restoration.</p></article>
       <article class="bridge reveal"><span class="b-n">04</span><h3 data-i18n="b4t">Career &amp; Workplace</h3><p data-i18n="b4d">Job search, workplace challenges, career change, leadership.</p></article>
       <article class="bridge reveal"><span class="b-n">05</span><h3 data-i18n="b5t">Business &amp; Entrepreneurship</h3><p data-i18n="b5d">Starting a business, restaurants, small business, failure, lessons, growth.</p></article>
-      <article class="bridge reveal"><span class="b-n">06</span><h3 data-i18n="b6t">Immigrant &amp; New Beginning</h3><p data-i18n="b6d">Immigrant life in America, culture shock, students, a new start.</p></article>
+      <article class="bridge reveal"><span class="b-n">06</span><h3 data-i18n="b6t">Immigrant &amp; New Beginning</h3><p data-i18n="b6d">Immigrant life in America, adjusting to a new country, culture shock, students.</p></article>
       <article class="bridge reveal"><span class="b-n">07</span><h3 data-i18n="b7t">Faith &amp; Hope</h3><p data-i18n="b7d">Finding meaning, holding on to hope, spiritual journeys.</p></article>
-      <article class="bridge reveal"><span class="b-n">08</span><h3 data-i18n="b8t">Money &amp; Real-Life</h3><p data-i18n="b8d">Everyday money, budgets, financial ups &amp; downs, real choices.</p></article>
+      <article class="bridge reveal"><span class="b-n">08</span><h3 data-i18n="b8t">Money &amp; Real-Life</h3><p data-i18n="b8d">Money, everyday life, budget, financial ups &amp; downs, real choices.</p></article>
       <article class="bridge reveal"><span class="b-n">09</span><h3 data-i18n="b9t">Senior &amp; Generational</h3><p data-i18n="b9d">Seniors, loneliness, respect, dignity, connecting generations.</p></article>
       <article class="bridge reveal"><span class="b-n">10</span><h3 data-i18n="b10t">Loneliness &amp; Human Connection</h3><p data-i18n="b10d">Loneliness, isolation, or simply wanting someone to talk to.</p></article>
       <article class="bridge reveal"><span class="b-n">11</span><h3 data-i18n="b11t">Second Chance</h3><p data-i18n="b11d">Failure, rock bottom, pain, lessons, and a second chance.</p></article>
       <article class="bridge reveal"><span class="b-n">12</span><h3 data-i18n="b12t">Community &amp; Service</h3><p data-i18n="b12d">Volunteering, community, helping others, resources &amp; connection.</p></article>
     </div>
-    <figure class="map reveal">
-      <img class="zoom lang-en" src="assets/img/infographic-en.webp" alt="HBA bridge map: mission, core values, 4-step process and all bridges" width="770" height="1024" loading="lazy">
-      <img class="zoom lang-ko" src="assets/img/infographic-ko.webp" alt="HBA 브리지 지도: 미션, 핵심 가치, 4단계 과정과 모든 브리지" width="758" height="1024" loading="lazy">
-      <figcaption>
-        <p class="eyebrow" data-i18n="mapEyebrow">The full picture</p>
-        <h3 data-i18n="mapTitle">The HBA Bridge Map</h3>
-        <p data-i18n="mapText">Our mission, values, 4-step process and every bridge on one page — all built on real-life experience. Tap the image to view it full size.</p>
-      </figcaption>
-    </figure>
-    <p class="note reveal" data-i18n="brNote">Bridges are offered through story sharing, interviews, TikTok, and Instagram — sharing to inspire.</p>
+    <p class="note reveal" data-i18n="brNote">All areas are shared through real stories, interviews, TikTok, and Instagram — sharing to inspire.</p>
   </div>
 </section>
 
@@ -207,32 +325,33 @@
       <h2 class="title light" data-i18n="valTitle">Our Core Values</h2>
     </div>
     <ul class="values">
-      <li class="reveal"><span aria-hidden="true">👂</span><span data-i18n="v1">Listen without judgment</span></li>
-      <li class="reveal"><span aria-hidden="true">🤍</span><span data-i18n="v2">Respect every person</span></li>
-      <li class="reveal"><span aria-hidden="true">🔒</span><span data-i18n="v3">Protect privacy</span></li>
-      <li class="reveal"><span aria-hidden="true">🤝</span><span data-i18n="v4">Share only with permission</span></li>
-      <li class="reveal"><span aria-hidden="true">🔗</span><span data-i18n="v5">Connect when help is needed</span></li>
-      <li class="reveal"><span aria-hidden="true">🌉</span><span data-i18n="v6">Build bridges, not walls</span></li>
+      <li class="reveal"><svg><use href="#i-ear"/></svg><span data-i18n="v1">Listen without judgment</span></li>
+      <li class="reveal"><svg><use href="#i-heart"/></svg><span data-i18n="v2">Respect every person</span></li>
+      <li class="reveal"><svg><use href="#i-lock"/></svg><span data-i18n="v3">Protect privacy</span></li>
+      <li class="reveal"><svg><use href="#i-chat"/></svg><span data-i18n="v4">Share only with permission</span></li>
+      <li class="reveal"><svg><use href="#i-link"/></svg><span data-i18n="v5">Connect when help is needed</span></li>
+      <li class="reveal"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg><span data-i18n="v6">Build bridges, not walls</span></li>
     </ul>
     <div class="pillars">
-      <div class="pillar reveal"><h3 data-i18n="pl1t">Every Story Matters</h3><p data-i18n="pl1d">No labels. No judgment. Just human.</p></div>
-      <div class="pillar reveal"><h3 data-i18n="pl2t">Experience Before Image</h3><p data-i18n="pl2d">Real life before image. Human before title.</p></div>
-      <div class="pillar reveal"><h3 data-i18n="pl3t">Connection Before Judgment</h3><p data-i18n="pl3d">Bridges before walls. People before positions.</p></div>
-      <div class="pillar reveal"><h3 data-i18n="pl4t">Together, We Build Bridges</h3><p data-i18n="pl4d">One story, one person, one bridge at a time.</p></div>
+      <div class="pillar reveal"><svg><use href="#i-heart"/></svg><h3 data-i18n="pl1t">Every Story Matters</h3><p data-i18n="pl1d">No labels. No judgment. Just human.</p></div>
+      <div class="pillar reveal"><svg><use href="#i-diamond"/></svg><h3 data-i18n="pl2t">Experience Before Image</h3><p data-i18n="pl2d">Real life before image. Human before title.</p></div>
+      <div class="pillar reveal"><svg><use href="#i-people"/></svg><h3 data-i18n="pl3t">Connection Before Judgment</h3><p data-i18n="pl3d">Bridges before walls. People before positions.</p></div>
+      <div class="pillar reveal"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg><h3 data-i18n="pl4t">Together, We Build Bridges</h3><p data-i18n="pl4d">One story, one person, one bridge at a time.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ============ FOUNDER ============ -->
-<section class="section cream" id="founder">
+<section class="section cream founder-sec" id="founder">
+  <svg class="founder-bg" viewBox="0 0 64 40" aria-hidden="true"><use href="#bridge"/></svg>
   <div class="wrap founder">
     <div class="founder-photos reveal">
-      <img class="fp-main zoom" data-full="assets/img/poster-founder.webp" src="assets/img/founder-fire.webp" alt="Elizabeth Kim standing beside a campfire in the desert at dusk" width="578" height="700" loading="lazy">
+      <img class="fp-main" src="assets/img/founder-fire.webp" alt="Elizabeth Kim standing beside a campfire in the desert at dusk" width="578" height="700" loading="lazy">
       <img class="fp-a" src="assets/img/founder-desk.webp" alt="Elizabeth Kim at her desk under a sign reading 'I don't have to be the answer. I can be the bridge.'" width="324" height="250" loading="lazy">
       <img class="fp-b" src="assets/img/founder-tracks.webp" alt="Elizabeth Kim standing on railroad tracks on a sunny day" width="340" height="550" loading="lazy">
     </div>
     <div class="founder-text reveal">
-      <p class="eyebrow" data-i18n="fEyebrow">Founder</p>
+      <p class="eyebrow eyebrow-line" data-i18n="fEyebrow">Founder</p>
       <h2 class="name" data-i18n="fName">Elizabeth Kim</h2>
       <p class="role" data-i18n="fRole">Founder | Human Bridge Ambassador</p>
       <p class="founder-lede" data-i18n="fLede">From the golden spoon to the dirt spoon, Elizabeth discovered a diamond within. Today, from the driver's seat, she listens to stories and builds bridges between one human heart and another.</p>
@@ -243,84 +362,107 @@
         <li data-i18n="j4">From single mom to servant leader</li>
         <li data-i18n="j5">From my story to our bridge</li>
       </ul>
-      <blockquote class="pull">
-        <p data-i18n="fQuote">"I don't have to be the answer. I can be the bridge."</p>
-      </blockquote>
-      <p class="founder-body" data-i18n="fBody">I am not a perfect person. I am a person who kept going. A failure at times, a person of pain at times — that is how a diamond was forged. HBA is my life's work and calling. I will keep listening, learning, and bridging — one person at a time, for as long as I live.</p>
+      <blockquote class="pull"><p data-i18n="fQuote">"I don't have to be the answer. I can be the bridge."</p></blockquote>
+      <p class="founder-body" data-i18n="fBody">Everything I share comes from my own life — every success, failure, tear, and lesson. Real experiences. Real coaching. Real connection.</p>
+      <p class="spaced" aria-hidden="true">LISTEN • CONNECT • BRIDGE</p>
     </div>
   </div>
-</section>
-
-<!-- ============ POEM ============ -->
-<section class="poem" aria-labelledby="poemTitle">
-  <div class="wrap poem-inner">
-    <figure class="paper reveal">
-      <h2 id="poemTitle" class="sr-only">It burns, it shines.</h2>
-      <img class="zoom" src="assets/img/poem-sun.webp" alt="Typewritten poem: Does the sun ask itself, “Am I good? Am I worthwhile? Is there enough of me?” No, it burns and it shines. Does the sun ask itself, “What does the moon think of me? How does Mars feel about me today?” No it burns, it shines. Does the sun ask itself, “Am I as big as other suns in other galaxies?” No, it burns, it shines." width="1302" height="2097" loading="lazy">
-    </figure>
-    <div class="poem-side reveal">
-      <p class="script gold big" data-i18n="poemSide">You don't need to compare.</p>
-      <p data-i18n="poemSideD">You don't need permission to be enough. Like the sun, your story already burns and shines — we're here to help the world see it.</p>
-    </div>
+  <div class="wrap diamond reveal">
+    <p class="d1" data-i18n="dia1">I am not a perfect person. I am a person who kept going.</p>
+    <p class="d2" data-i18n="dia2">A failure at times, a person of pain at times — that is how a diamond was forged.</p>
+    <p class="d3" data-i18n="dia3">HBA is my life's work and calling. I will keep listening, learning, and bridging — one person at a time, for as long as I live.</p>
   </div>
 </section>
 
 <!-- ============ WE ARE ONE ============ -->
 <section class="section white one" id="one">
-  <div class="wrap one-inner">
-    <figure class="poster-frame reveal">
-      <img class="zoom lang-en" src="assets/img/poster-we-are-one-en.webp" alt="Poster: We are one. I am you. You are me. You are my mirror, I am your mirror." width="507" height="1536" loading="lazy">
-      <img class="zoom lang-ko" src="assets/img/poster-we-are-one-ko.webp" alt="포스터: 우리는 하나다. 내가 너다. 너가 나다. 너는 나의 거울, 나는 너의 거울." width="508" height="1536" loading="lazy">
-    </figure>
-    <div class="one-text">
-    <div class="reveal">
+  <div class="wrap one-grid">
+    <div class="one-photo reveal">
+      <img src="assets/img/couple.webp" alt="Two people sitting side by side by the water at sunset, facing each other" width="500" height="290" loading="lazy">
+      <div class="one-photo-cap">
+        <p data-i18n="lookA">Look at me in you.</p>
+        <p data-i18n="lookB">Look at you in me.</p>
+        <p class="gold" data-i18n="lookC">We are us.</p>
+      </div>
+    </div>
+    <div class="one-text reveal">
       <p class="eyebrow" data-i18n="oneEyebrow">We are one</p>
-      <h2 class="title big-title"><span data-i18n="oneA">I am you.</span><br><span class="gold" data-i18n="oneB">You are me.</span></h2>
-      <p class="script gold xl" data-i18n="oneC">We are One.</p>
+      <h2 class="one-title"><span data-i18n="oneT1">WE ARE</span> <span class="gold" data-i18n="oneT2">ONE</span></h2>
+      <p class="hand"><span data-i18n="oneH1">I am you.</span><br><span class="gold" data-i18n="oneH2">You are me.</span></p>
+      <div class="feel">
+        <div class="feel-row"><span class="ic"><svg><use href="#i-sad"/></svg></span><p><span data-i18n="sad1">When I was sad,</span><br><span class="gold" data-i18n="sad2">you were smiling.</span></p></div>
+        <div class="feel-row"><span class="ic"><svg><use href="#i-hurt"/></svg></span><p><span data-i18n="hurt1">When you were hurting,</span><br><span class="gold" data-i18n="hurt2">was I truly happy?</span></p></div>
+      </div>
     </div>
-    <div class="mirror-grid">
-      <div class="mirror reveal"><h3 data-i18n="m1t">Look at me in you.</h3><p data-i18n="m1d">In your heart, in your story, you will find me.</p></div>
-      <div class="mirror reveal"><h3 data-i18n="m2t">Look at you in me.</h3><p data-i18n="m2d">In my heart, in my journey, you will find you.</p></div>
-      <div class="mirror reveal wide"><h3 data-i18n="m3t">We are us.</h3><p data-i18n="m3d">We learn through each other. We grow through each other. We heal through each other.</p></div>
+  </div>
+  <div class="wrap">
+    <p class="brush brush-navy reveal" data-i18n="brushOne">We are one</p>
+    <div class="mirrors reveal">
+      <div><svg><use href="#i-mirror"/></svg><p data-i18n="mirA">You are<br>my mirror</p></div>
+      <span class="vbar" aria-hidden="true"></span>
+      <div><svg><use href="#i-heart-fill"/></svg><p data-i18n="mirB">I am<br>your mirror</p></div>
     </div>
+    <p class="center-lines reveal"><span data-i18n="grow1">We learn through each other.</span><br><span data-i18n="grow2">We grow through each other.</span><br><span data-i18n="grow3">We heal through each other.</span></p>
+    <p class="brush brush-gold reveal" data-i18n="brushHeart">One heart, one love, one journey</p>
+    <p class="center-lines reveal"><span data-i18n="con1">We are connected.</span><br><span data-i18n="con2">We are one story.</span><br><span data-i18n="con3">We are one human.</span></p>
+  </div>
+</section>
+
+<!-- ============ WE BECOME ONE ============ -->
+<section class="together" id="together">
+  <div class="together-top">
+    <div class="wrap">
+      <h2 class="tg-title reveal"><span data-i18n="tgA">WE BECOME ONE,</span><em class="script gold" data-i18n="tgB">We can do anything.</em></h2>
+      <div class="tg-rows">
+        <div class="tg-row reveal"><span class="ic"><svg><use href="#i-chain"/></svg></span><p><span data-i18n="c1a">Chains that bind me alone remain tight and unbreakable.</span> <span class="gold" data-i18n="c1b">But when we work together, they break.</span></p></div>
+        <div class="tg-row reveal"><span class="ic gold-ic"><svg><use href="#i-knot"/></svg></span><p><span data-i18n="c2a">The knots that connect you and me become even stronger</span> <span class="gold" data-i18n="c2b">when we tie them together. That is how we become one.</span></p></div>
+        <div class="tg-row reveal"><span class="ic"><svg><use href="#i-lifeline"/></svg></span><p><span data-i18n="c3a">The same knot can be a chain that binds, or a lifeline that connects.</span> <span class="gold" data-i18n="c3b">It all depends on how we choose to tie it — together.</span></p></div>
+        <div class="tg-row reveal strong"><span class="ic"><svg><use href="#i-people"/></svg></span><p><span data-i18n="c4a">So let's choose to tie it the right way.</span> <span class="gold" data-i18n="c4b">Together. Always.</span> <b data-i18n="c4c">Let's be WE.</b></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="hands">
+    <img src="assets/img/hands.webp" alt="Many hands from different people joined together in the center, with a bridge and sunset behind" width="1024" height="172" loading="lazy">
+  </div>
+  <div class="together-foot">
+    <div class="wrap">
+      <p class="brush brush-dark reveal" data-i18n="weListen">We listen. We connect. We bridge.</p>
+      <p class="spaced light" aria-hidden="true">LISTEN • CONNECT • BRIDGE</p>
+      <p class="script fm gold" data-i18n="fmLabel">Founder's Message</p>
+      <p class="fm-text reveal" data-i18n="fm1">When you and I come together, we become more than I or you. We become a bridge that changes lives.</p>
+      <p class="fm-end gold" data-i18n="fm2">One heart. One journey. One human family.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ TOGETHER ============ -->
-<section class="section cream" id="together">
-  <div class="wrap together">
-    <div class="together-text">
-      <div class="reveal">
-        <p class="eyebrow" data-i18n="tgEyebrow">Together. Always.</p>
-        <h2 class="title"><span data-i18n="tgA">We become one,</span><br><em class="script gold" data-i18n="tgB">we can do anything.</em></h2>
-      </div>
-      <div class="chains">
-        <div class="chain reveal"><p data-i18n="c1">Chains that bind me alone remain tight and unbreakable. <span class="gold">But when we work together, they break.</span></p></div>
-        <div class="chain reveal"><p data-i18n="c2">The knots that connect you and me become even stronger <span class="gold">when we tie them together.</span></p></div>
-        <div class="chain reveal"><p data-i18n="c3">The same knot can be a chain that binds, or a lifeline that connects. <span class="gold">It all depends on how we choose to tie it — together.</span></p></div>
-      </div>
-      <p class="tg-end reveal" data-i18n="tgEnd">So let's choose to tie it the right way. <b>Let's be WE.</b></p>
+<!-- ============ I AM YOU — MY DOOR IS ALWAYS OPEN ============ -->
+<section class="section cream door-sec" id="door">
+  <div class="wrap">
+    <div class="iam reveal">
+      <h2><span data-i18n="iam1">I AM</span> <span class="gold" data-i18n="iam2">YOU.</span><br><span data-i18n="iam3">YOU ARE</span> <span class="gold" data-i18n="iam4">ME.</span></h2>
+      <p class="script gold iam-script" data-i18n="iam5">We are One.</p>
     </div>
-    <figure class="poster-frame reveal">
-      <img class="zoom" src="assets/img/poster-become-one.webp" alt="Poster: We become one, we can do anything. Chains, knots and lifelines — together. Let's be WE." width="1024" height="1536" loading="lazy">
-    </figure>
   </div>
-</section>
-
-<!-- ============ DOOR (founder message) ============ -->
-<section class="section white" id="door">
-  <div class="wrap door">
-    <figure class="poster-frame reveal">
-      <img class="zoom" src="assets/img/poster-i-am-you.webp" alt="Poster: I am you. You are me. We are one. Look at me in you, look at you in me. My door is always open." width="1024" height="1536" loading="lazy">
-    </figure>
-    <div class="door-text reveal">
-      <p class="eyebrow" data-i18n="drEyebrow">Founder's message</p>
-      <h2 class="title" data-i18n="drTitle">My door is always open.</h2>
-      <p class="door-quote" data-i18n="drQuote">I will go where you need me — with my heart. And when you want to come, my door is always open.</p>
-      <p data-i18n="drBody">I believe that when we see each other truly, without labels or judgments, love becomes the bridge, and we become the change this world has been waiting for.</p>
-      <p class="door-sign script gold">— Elizabeth Kim</p>
+  <figure class="wide-photo back reveal">
+    <img src="assets/img/group-back.webp" alt="A row of people seen from behind, arms around each other, looking at the bridge and sunset" width="1024" height="195" loading="lazy">
+  </figure>
+  <div class="wrap">
+    <div class="look-grid">
+      <div class="look reveal"><span class="ic"><svg><use href="#i-person-heart"/></svg></span><div><h3><span data-i18n="lk1a">Look at me</span> <span class="gold" data-i18n="lk1b">in you.</span></h3><p data-i18n="lk1d">In your heart, in your story, you will find me.</p></div></div>
+      <div class="look reveal"><span class="ic"><svg><use href="#i-person-heart"/></svg></span><div><h3><span data-i18n="lk2a">Look at you</span> <span class="gold" data-i18n="lk2b">in me.</span></h3><p data-i18n="lk2d">In my heart, in my journey, you will find you.</p></div></div>
+      <div class="look wide reveal"><span class="ic"><svg><use href="#i-people"/></svg></span><div><h3><span data-i18n="lk3a">We are</span> <span class="gold" data-i18n="lk3b">us.</span></h3><p data-i18n="lk3d">Different lives. Different stories. But one heart, one purpose, one human family.</p></div></div>
     </div>
+    <p class="brush brush-navy reveal" data-i18n="weListen">We listen. We connect. We bridge.</p>
+    <div class="open-door reveal">
+      <p><span data-i18n="od1">I will go where you need me — with my heart.</span><br><span data-i18n="od2">And when you want to come,</span><br><b data-i18n="od3">my door is always open.</b></p>
+      <svg class="door-ic glow-door" aria-hidden="true"><use href="#i-door"/></svg>
+    </div>
+    <div class="fm-block reveal">
+      <p class="script gold fm" data-i18n="fmLabel">Founder's Message</p>
+      <p data-i18n="fm3">I believe that when we see each other truly, without labels or judgments, love becomes the bridge, and we become the change this world has been waiting for.</p>
+      <p class="sig script">— Elizabeth Kim</p>
+    </div>
+    <p class="flipline reveal"><b class="gold" data-i18n="a1t">FLIP</b> <span data-i18n="a1d">the way we see people.</span> <b class="gold" data-i18n="a2t">TAKE OFF</b> <span data-i18n="a2d">the labels.</span> <b class="gold" data-i18n="a3t">MEET</b> <span data-i18n="a3d">heart to heart.</span></p>
   </div>
 </section>
 
@@ -329,24 +471,24 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow gold" data-i18n="invEyebrow">Our door is always open</p>
-      <h2 class="title light" data-i18n="invTitle">Get Involved</h2>
-      <p class="sub light" data-i18n="invSub">We go where you need us. We stay where love is needed. And our door is always open when you want to come.</p>
+      <h2 class="title light" data-i18n="invTitle">Let's have a cup of coffee.</h2>
+      <p class="sub light" data-i18n="invSub">Every bridge begins with a conversation. Come as you are — we'll listen first.</p>
     </div>
     <div class="inv-grid">
       <article class="inv reveal">
-        <span class="inv-icon" aria-hidden="true">💬</span>
+        <span class="ic"><svg><use href="#i-cup"/></svg></span>
         <h3 data-i18n="i1t">Share Your Story</h3>
         <p data-i18n="i1d">Need someone to listen, or looking for a mentor who has been where you are? Tell us a little, and we'll find your bridge.</p>
         <a class="btn btn-gold" href="#contact" data-topic="mentee" data-i18n="i1b">Find a Bridge</a>
       </article>
       <article class="inv reveal">
-        <span class="inv-icon" aria-hidden="true">🌉</span>
+        <span class="ic"><svg viewBox="0 0 64 40"><use href="#bridge"/></svg></span>
         <h3 data-i18n="i2t">Become an Ambassador</h3>
         <p data-i18n="i2d">Turn your lived experience into someone else's way forward. Join as a mentor, listener, or volunteer.</p>
         <a class="btn btn-gold" href="#contact" data-topic="mentor" data-i18n="i2b">Become a Mentor</a>
       </article>
       <article class="inv reveal">
-        <span class="inv-icon" aria-hidden="true">🤝</span>
+        <span class="ic"><svg><use href="#i-people"/></svg></span>
         <h3 data-i18n="i3t">Partner &amp; Support</h3>
         <p data-i18n="i3d">Organizations, churches, businesses, and donors — help us build more bridges in our communities.</p>
         <a class="btn btn-gold" href="#contact" data-topic="partner" data-i18n="i3b">Partner With Us</a>
@@ -411,11 +553,11 @@
       <svg class="brand-mark" viewBox="0 0 64 40" aria-hidden="true"><use href="#bridge"/></svg>
       <div><strong>HBA</strong><small data-i18n="brandSub">Human Bridge Ambassador</small></div>
     </div>
-    <p class="f-script script" data-i18n="fSlogan">You are not alone. You are heard.</p>
+    <p class="f-script script" data-i18n="notAlone">You are not alone. You are heard.</p>
     <nav class="f-nav" aria-label="Footer">
-      <a href="#mission" data-i18n="navMission">Mission</a>
+      <a href="#story" data-i18n="navStory">Our Story</a>
       <a href="#bridges" data-i18n="navBridges">Bridges</a>
-      <a href="#founder" data-i18n="navPeople">Our People</a>
+      <a href="#founder" data-i18n="navPeople">Founder</a>
       <a href="#involved" data-i18n="navJoin">Get Involved</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
@@ -426,14 +568,8 @@
   </div>
 </footer>
 
-<!-- Lightbox -->
-<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
-  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
-  <img id="lbImg" alt="">
-</dialog>
-
-<!-- SVG sprite: bridge mark -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- ============ SVG SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
   <symbol id="bridge" viewBox="0 0 64 40">
     <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
       <path d="M2 30h60"/><path d="M13 6v28M51 6v28"/>
@@ -443,6 +579,32 @@
     </g>
     <circle cx="13" cy="5" r="3" fill="currentColor"/><circle cx="51" cy="5" r="3" fill="currentColor"/>
   </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-heart-fill" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 20.5s-8-4.9-8-10.8A4.5 4.5 0 0 1 12 6.9a4.5 4.5 0 0 1 8 2.8c0 5.9-8 10.8-8 10.8z"/></symbol>
+  <symbol id="i-heartbreak" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/><path d="M12 7.2l-1.6 3.4 2.6 1.6-1.6 3.6"/></symbol>
+  <symbol id="i-family" viewBox="0 0 24 24"><circle cx="8" cy="6.5" r="2.5"/><circle cx="16" cy="6.5" r="2.5"/><circle cx="12" cy="13" r="1.8"/><path d="M3.5 20c0-3.5 2-6 4.5-6M20.5 20c0-3.5-2-6-4.5-6M9 20.5c0-2 1.3-3.5 3-3.5s3 1.5 3 3.5"/></symbol>
+  <symbol id="i-pray" viewBox="0 0 24 24"><path d="M11.5 3.5C10 6.5 8 9 8 12l-3 4 4 4.5h2.5V8M12.5 3.5C14 6.5 16 9 16 12l3 4-4 4.5h-2.5"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5c0-4 3.1-7 7-7s7 3 7 7"/></symbol>
+  <symbol id="i-person-heart" viewBox="0 0 24 24"><circle cx="12" cy="6.5" r="3.2"/><path d="M4.5 21c0-4.4 3.4-8 7.5-8s7.5 3.6 7.5 8"/><path fill="currentColor" stroke="none" d="M12 19.5s-3-1.9-3-4a1.6 1.6 0 0 1 3-.9 1.6 1.6 0 0 1 3 .9c0 2.1-3 4-3 4z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 10h12v4.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.8a2.6 2.6 0 0 1 0 5.2H16"/><path d="M3 21.5h14"/><path d="M8 3.5c-.9 1.3.9 1.9 0 3.6M12 3.5c-.9 1.3.9 1.9 0 3.6"/></symbol>
+  <symbol id="i-ear" viewBox="0 0 24 24"><path d="M7 9.5a5 5 0 0 1 10 0c0 3.4-3.4 3.9-3.4 7.2a2.8 2.8 0 0 1-5.6.3"/><path d="M10 10a2 2 0 0 1 4 0c0 1.3-1.4 1.6-1.4 2.8"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10l-5 4v-4H4z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-6.5-5.8-6.5-11.5a6.5 6.5 0 0 1 13 0c0 5.7-6.5 11.5-6.5 11.5z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-flip" viewBox="0 0 24 24"><path d="M7 20V4M7 4L3.5 7.5M7 4l3.5 3.5M17 4v16M17 20l-3.5-3.5M17 20l3.5-3.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4h8.5l9 9-8.5 8.5z"/><circle cx="8" cy="8.5" r="1.4"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M4 21.5h16M6 21.5V3h12v18.5"/><path d="M6 3l7 2.2v16.3"/><path d="M10.5 12.5h.01" stroke-width="2.4"/></symbol>
+  <symbol id="i-mirror" viewBox="0 0 24 24"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5v4.5M8 21.5h8M9.5 6.5l2-1.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><circle cx="5.5" cy="9" r="2.2"/><circle cx="18.5" cy="9" r="2.2"/><path d="M6.5 20c0-3.6 2.5-6.5 5.5-6.5s5.5 2.9 5.5 6.5M1.5 19c0-2.6 1.8-4.6 4-4.6M22.5 19c0-2.6-1.8-4.6-4-4.6"/></symbol>
+  <symbol id="i-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M8.8 9.8h.01M15.2 9.8h.01" stroke-width="2.6"/><path d="M8.3 16.5c1.6-2 5.8-2 7.4 0"/></symbol>
+  <symbol id="i-hurt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 8.5l2.5 1.3-2.5 1.3M16.5 8.5L14 9.8l2.5 1.3"/><path d="M8.5 16c1-1 2.3-1.4 3.5-1.4s2.5.4 3.5 1.4"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12C12 7.5 8.5 5 4 5c0 4.5 3.5 7 8 7zM12 10c0-3.8 2.9-6 6.8-6 0 3.8-2.9 6-6.8 6z"/><path d="M7 21h10"/></symbol>
+  <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6.5 4h11L21 9.5 12 20.5 3 9.5z"/><path d="M3 9.5h18M9.5 4L12 20.5 14.5 4"/></symbol>
+  <symbol id="i-chain" viewBox="0 0 24 24"><path d="M9.5 14.5L8 16a3.2 3.2 0 0 1-4.5-4.5L6 9"/><path d="M14.5 9.5L16 8a3.2 3.2 0 0 1 4.5 4.5L18 15"/><path d="M9 9l1.2 1.2M15 15l-1.2-1.2"/><path d="M11 3.5v2M13.5 4.5l-1 1.6M3.5 13l2 .3M18.5 19.5l-1-1.6M21 11l-2 .3"/></symbol>
+  <symbol id="i-knot" viewBox="0 0 24 24"><path d="M12 12c-2.2-3.4-7.5-3.4-7.5 0s5.3 3.4 7.5 0 7.5-3.4 7.5 0-5.3 3.4-7.5 0z"/><path d="M8 6.5c2 0 4 2.5 4 5.5M16 17.5c-2 0-4-2.5-4-5.5"/></symbol>
+  <symbol id="i-lifeline" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="M6 6l3.4 3.4M18 6l-3.4 3.4M6 18l3.4-3.4M18 18l-3.4-3.4"/></symbol>
 </svg>
 
 <script src="assets/js/i18n.js"></script>
