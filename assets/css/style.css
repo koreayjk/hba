@@ -693,3 +693,50 @@ html[lang="es"] .iam h2, html[lang="es"] .one-title, html[lang="es"] .tg-title {
   .cta-mob { display: flex; order: 1; padding: 22px 20px 30px; background: linear-gradient(#eadfcd, #efe5d4); }
   .cta-mob .btn { flex: 1 1 100%; }
 }
+
+/* =========================================================
+   BRIDGES & VALUES as photo cards
+   ========================================================= */
+.bridge { padding: 0; display: flex; flex-direction: column; background: #fffdf8; border: 1px solid rgba(184, 134, 47, .22); border-radius: 10px; overflow: hidden;
+  box-shadow: 0 26px 50px -38px rgba(40, 28, 12, .55); transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+.bridge::after { display: none; }
+.bridge:hover { background: #fffdf8; color: inherit; transform: translateY(-6px); box-shadow: 0 40px 70px -40px rgba(40, 28, 12, .7); }
+.bridge:hover h3 { color: var(--navy); }
+.bridge:hover p { color: var(--muted); }
+.b-photo { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.b-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.bridge:hover .b-photo img { transform: scale(1.07); }
+.b-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 60%, rgba(25, 16, 6, .35)); }
+.b-body { position: relative; padding: 22px 22px 24px; flex: 1; }
+.b-body .b-n { position: absolute; top: -28px; left: 18px; z-index: 1; font-size: 2.4rem; font-weight: 500; color: #fff6e6; text-shadow: 0 2px 14px rgba(0,0,0,.45); }
+.b-body h3 { margin: 4px 0 8px; font-size: 1.35rem; }
+.b-body p { font-size: .92rem; }
+
+.vcards { list-style: none; margin: 0 0 clamp(56px, 7vw, 80px); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.8vw, 24px); }
+.vcard { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 4 / 4.4; border: 1px solid rgba(212, 166, 79, .3); box-shadow: 0 34px 60px -36px rgba(0, 0, 0, .8); }
+.vcard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.vcard:hover img { transform: scale(1.06); }
+.vcard::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 16, 34, 0) 35%, rgba(8, 16, 34, .55) 65%, rgba(8, 16, 34, .92) 100%); }
+.vcard-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; color: #fbf3e4;
+  font-family: var(--serif); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.2; font-weight: 600; }
+.vic { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(212, 166, 79, .7); color: var(--gold-2); background: rgba(8, 16, 34, .35); backdrop-filter: blur(4px); }
+.vic svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.vic svg[viewBox] { width: 26px; height: 16px; }
+.pillar h3 { font-size: clamp(1.35rem, 1.9vw, 1.7rem); }
+.pillar p { font-size: .98rem; }
+
+@media (max-width: 1080px) { .vcards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .bridge-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .b-body { padding: 16px 14px 18px; }
+  .b-body .b-n { font-size: 1.8rem; top: -22px; left: 12px; }
+  .b-body h3 { font-size: 1.08rem; }
+  .b-body p { font-size: .82rem; }
+  .vcards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .vcard { aspect-ratio: 4 / 5; }
+  .vcard-cap { padding: 14px; font-size: 1.05rem; gap: 8px; }
+  .vic { width: 34px; height: 34px; }
+}
+/* keep the paradox lines above the rising photo */
+.who .paradox { position: relative; z-index: 2; text-shadow: 0 0 18px rgba(255, 246, 228, .9); }
+.who .wide-photo { margin-top: clamp(-90px, -6vw, -40px); }
