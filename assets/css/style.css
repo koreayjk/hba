@@ -265,7 +265,8 @@ html[lang="ko"] .worth p { text-transform: none; }
    EVERYONE IS WELCOME — flip rebuilt
    ========================================================= */
 .welcome { text-align: center; overflow: hidden; }
-.welcome-sky { background: radial-gradient(700px 300px at 50% 100%, #fbe3b4, transparent 70%), linear-gradient(#fbf5ec, #f6e6cc); padding: clamp(56px, 8vw, 96px) 20px 0; }
+.welcome { background: linear-gradient(#fbf5ec, #f6e6cc 30%, #f4ddb6 60%, #0a213e 60.1%); }
+.welcome-sky { background: radial-gradient(700px 300px at 50% 100%, rgba(251, 227, 180, .9), transparent 70%); padding: clamp(56px, 8vw, 96px) 20px 0; }
 .welcome-mark { width: 74px; height: 46px; color: var(--gold); margin: 0 auto 10px; display: block; }
 .welcome-word { margin: 0; font-family: var(--sans); font-weight: 800; line-height: .95; display: flex; flex-direction: column; align-items: center; text-transform: uppercase; }
 .welcome-word > span { font-size: clamp(3rem, 10.5vw, 8.4rem); letter-spacing: .01em; }
@@ -276,9 +277,19 @@ html[lang="ko"] .welcome-word > span { font-size: clamp(2.6rem, 8.4vw, 6.6rem); 
 .w-navy { color: var(--navy); }
 .w-gold { background: linear-gradient(180deg, #e0ad55, #b07a26); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .w-light { color: #ece4d6; }
-.welcome-band { background: linear-gradient(#f6e6cc, #f3dcb4); }
-.welcome-band img { width: 100%; height: clamp(70px, 10vw, 150px); object-fit: cover; object-position: center 60%; }
-.band-cap { margin: 0; padding: 12px 20px; background: #0a213e; color: #f6ead7; font-weight: 700; letter-spacing: .14em; font-size: clamp(.72rem, 1.5vw, .95rem); text-transform: uppercase; }
+.welcome-sky { position: relative; z-index: 2; padding-bottom: clamp(10px, 2vw, 24px); }
+/* the photo rises out of the sky behind the words instead of starting at a hard edge */
+.welcome-band { position: relative; z-index: 1; margin-top: clamp(-170px, -12vw, -70px); }
+.welcome-band img { width: 100%; height: clamp(260px, 38vw, 560px); object-fit: cover; object-position: center 58%;
+  -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 14%, #000 34%); mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 14%, #000 34%); }
+.welcome-band::before { content: ""; position: absolute; inset: 0 0 auto; height: 45%; z-index: 1; pointer-events: none;
+  background: linear-gradient(rgba(246, 230, 204, .9) 0%, rgba(246, 230, 204, .45) 45%, transparent 100%); }
+.welcome-band::after { /* bridge deck melts into the waterline */
+  content: ""; position: absolute; inset: auto 0 0; height: 22%; pointer-events: none;
+  background: linear-gradient(transparent, rgba(10, 33, 62, .55) 70%, #0a213e); }
+.welcome-sky .welcome-word { position: relative; filter: drop-shadow(0 2px 18px rgba(255, 244, 222, .9)); }
+.welcome-sky .w-gold { background: linear-gradient(180deg, #d9a14a, #a8701f 70%, #8d5d18); -webkit-background-clip: text; background-clip: text; }
+.band-cap { position: relative; z-index: 2; margin: -1px 0 0; padding: 10px 20px 12px; background: #0a213e; color: #f6ead7; font-weight: 700; letter-spacing: .14em; font-size: clamp(.72rem, 1.5vw, .95rem); text-transform: uppercase; }
 html[lang="ko"] .band-cap { text-transform: none; letter-spacing: .06em; }
 /* water: a mirrored copy of the bridge photo and the words, rippled by an SVG displacement filter */
 .welcome-water { position: relative; overflow: hidden; padding: 0 0 26px;
@@ -290,7 +301,7 @@ html[lang="ko"] .band-cap { text-transform: none; letter-spacing: .06em; }
   -webkit-mask: linear-gradient(to top, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 100%);
           mask: linear-gradient(to top, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 100%);
   display: flex; flex-direction: column-reverse; }
-.reflect { width: 100%; height: clamp(70px, 10vw, 150px); object-fit: cover; object-position: center 60%; opacity: .5; filter: saturate(.8) brightness(.75) sepia(.15); display: block;
+.reflect { width: 100%; object-fit: cover; object-position: center 58%; opacity: .5; filter: saturate(.8) brightness(.72) sepia(.15); display: block; height: clamp(160px, 22vw, 320px);
   -webkit-mask: linear-gradient(to top, #000 30%, transparent 100%); mask: linear-gradient(to top, #000 30%, transparent 100%); }
 .welcome-word.mirrored { margin: 0; padding: 0 20px; margin-bottom: -.12em; opacity: .55; }
 .welcome-word.mirrored .w-is { justify-content: center; color: #d9cfbe; }
@@ -653,3 +664,18 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
   .pnum { left: 12px; font-size: 2rem; }
   .letter-photo { max-width: none; }
 }
+
+/* I AM YOU: words sit over the top of the photo, which rises out of the cream */
+.door-sec .iam { position: relative; z-index: 2; }
+.door-sec .iam h2, .door-sec .iam-script { text-shadow: 0 0 22px rgba(255, 246, 228, .95), 0 0 6px rgba(255, 246, 228, .8); }
+.door-sec .iam-script { color: #94641e; }
+.door-sec .iam h2 .gold { color: #a8741f; }
+.wide-photo.back { margin-top: clamp(-200px, -14vw, -80px); z-index: 1; }
+.wide-photo.back img { height: clamp(320px, 44vw, 640px); object-position: center 58%;
+  -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 16%, #000 38%); mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 16%, #000 38%); }
+.wide-photo.back::before { height: 50%; background: linear-gradient(rgba(246, 239, 228, .92), rgba(246, 239, 228, .4) 55%, transparent); }
+/* same treatment for "Who are you?" */
+.who .who-q { position: relative; z-index: 2; text-shadow: 0 0 20px rgba(255, 246, 228, .95), 0 0 6px rgba(255, 246, 228, .8); }
+.who .wide-photo { margin-top: clamp(-120px, -8vw, -50px); z-index: 1; }
+.who .wide-photo img { -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.45) 15%, #000 34%); mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.45) 15%, #000 34%); }
+.who .wide-photo::before { height: 40%; background: linear-gradient(rgba(246, 236, 223, .9), transparent); }
