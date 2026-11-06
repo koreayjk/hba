@@ -122,6 +122,8 @@ window.HBA_ES = {
   j5: "De mi historia a nuestro puente",
   fQuote: "“No tengo que ser la respuesta. Puedo ser el puente.”",
   fBody: "Todo lo que comparto viene de mi propia vida: cada éxito, fracaso, lágrima y lección. Experiencias reales. Coaching real. Conexión real.",
+  ch1: "De la cuna de oro a empezar desde cero, Elizabeth descubrió un diamante en su interior.",
+  ch2: "Hoy, desde el asiento del conductor, escucha historias y tiende puentes entre un corazón humano y otro.",
   dia1: "No soy una persona perfecta. Soy una persona que siguió adelante.",
   dia2: "A veces un fracaso, a veces una persona herida: así se forjó un diamante.",
   dia3: "HBA es la obra y la vocación de mi vida. Seguiré escuchando, aprendiendo y tendiendo puentes, una persona a la vez, mientras viva.",
