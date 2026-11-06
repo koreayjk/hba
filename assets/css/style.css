@@ -679,3 +679,9 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .who .wide-photo { margin-top: clamp(-120px, -8vw, -50px); z-index: 1; }
 .who .wide-photo img { -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.45) 15%, #000 34%); mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.45) 15%, #000 34%); }
 .who .wide-photo::before { height: 40%; background: linear-gradient(rgba(246, 236, 223, .9), transparent); }
+
+/* Spanish: longer words in the big display type */
+html[lang="es"] .welcome-word > span { font-size: clamp(2.3rem, 8vw, 6.6rem); }
+html[lang="es"] .paradox p { font-size: clamp(1.1rem, 2.9vw, 2.1rem); }
+html[lang="es"] .iam h2, html[lang="es"] .one-title, html[lang="es"] .tg-title { font-size: clamp(2.3rem, 6.4vw, 5rem); }
+.lang button { padding: 5px 10px; }
