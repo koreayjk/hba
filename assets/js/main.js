@@ -45,6 +45,17 @@
   nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeMenu); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
+  /* still water for people who prefer less motion */
+  var fx = document.querySelector(".water-fx");
+  if (fx) {
+    // ripple strength in px: keep it proportional on small screens
+    var k = Math.max(0.4, Math.min(1, window.innerWidth / 1200));
+    var dm = fx.querySelector("feDisplacementMap"), an = dm && dm.querySelector("animate");
+    if (dm) dm.setAttribute("scale", Math.round(16 * k));
+    if (an) an.setAttribute("values", [12, 20, 12].map(function (v) { return Math.round(v * k); }).join(";"));
+    if (reduceMotion && fx.pauseAnimations) fx.pauseAnimations();
+  }
+
   /* ---------- reveal on scroll ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduceMotion) {
