@@ -214,16 +214,31 @@
     </h2>
   </div>
   <div class="welcome-band">
-    <img src="assets/img/walk-bridge.webp" alt="People of many ages and backgrounds walking together across a suspension bridge toward the rising sun" width="2200" height="943" loading="lazy">
+    <img src="assets/img/welcome-band.webp" alt="People of many kinds walking together across a bridge toward the rising sun" width="1536" height="110" loading="lazy">
   </div>
   <p class="band-cap" data-i18n="wCap">Different lives. Different stories. One human family.</p>
   <div class="welcome-water" aria-hidden="true">
-    <img class="reflect" src="assets/img/walk-bridge.webp" alt="" width="2200" height="943" loading="lazy">
-    <div class="welcome-word mirrored">
-      <span class="w-light" data-i18n="wA">EVERYONE</span>
-      <span class="w-is"><span data-i18n="wIs">IS</span></span>
-      <span class="w-gold" data-i18n="wB">WELCOME</span>
+    <div class="water-mirror">
+      <img class="reflect" src="assets/img/welcome-band.webp" alt="" width="1536" height="110" loading="lazy">
+      <div class="welcome-word mirrored">
+        <span class="w-light" data-i18n="wA">EVERYONE</span>
+        <span class="w-is"><span data-i18n="wIs">IS</span></span>
+        <span class="w-gold" data-i18n="wB">WELCOME</span>
+      </div>
     </div>
+    <span class="water-shine"></span>
+    <svg class="water-fx" width="0" height="0">
+      <filter id="hbaWater" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feTurbulence type="turbulence" baseFrequency="0.002 0.045" numOctaves="1" seed="11" result="noise">
+          <animate attributeName="baseFrequency" dur="16s" values="0.002 0.045;0.0028 0.06;0.002 0.045" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feGaussianBlur in="noise" stdDeviation="2 1" result="soft"/>
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="16" xChannelSelector="R" yChannelSelector="G" result="wave">
+          <animate attributeName="scale" dur="8s" values="12;20;12" repeatCount="indefinite"/>
+        </feDisplacementMap>
+        <feGaussianBlur in="wave" stdDeviation="1.6 0.7"/>
+      </filter>
+    </svg>
   </div>
   <div class="welcome-foot">
     <svg class="heart-line" aria-hidden="true"><use href="#i-heart"/></svg>
