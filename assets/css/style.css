@@ -737,3 +737,6 @@ html[lang="es"] .iam h2, html[lang="es"] .one-title, html[lang="es"] .tg-title {
   .vcard-cap { padding: 14px; font-size: 1.05rem; gap: 8px; }
   .vic { width: 34px; height: 34px; }
 }
+/* keep the paradox lines above the rising photo */
+.who .paradox { position: relative; z-index: 2; text-shadow: 0 0 18px rgba(255, 246, 228, .9); }
+.who .wide-photo { margin-top: clamp(-90px, -6vw, -40px); }
