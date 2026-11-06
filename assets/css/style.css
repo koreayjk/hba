@@ -740,3 +740,60 @@ html[lang="es"] .iam h2, html[lang="es"] .one-title, html[lang="es"] .tg-title {
 /* keep the paradox lines above the rising photo */
 .who .paradox { position: relative; z-index: 2; text-shadow: 0 0 18px rgba(255, 246, 228, .9); }
 .who .wide-photo { margin-top: clamp(-90px, -6vw, -40px); }
+
+/* =========================================================
+   FOUNDER — editorial gallery, story chapters, diamond band
+   ========================================================= */
+.fgal { display: grid; gap: 12px; grid-template-columns: 1.35fr 1fr; grid-template-rows: 1fr 1fr .8fr;
+  grid-template-areas: "main p" "main t" "n d"; aspect-ratio: 5 / 6.4; }
+.fgal figure { margin: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 26px 50px -34px rgba(40, 28, 12, .6); }
+.fgal img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.fgal figure:hover img { transform: scale(1.05); }
+.fg-main { grid-area: main; border-radius: 8px 8px 8px 150px !important; border: 2px solid var(--gold); }
+.fg-p { grid-area: p; } .fg-p img { object-position: 50% 25%; }
+.fg-t { grid-area: t; } .fg-t img { object-position: 50% 35%; }
+.fg-n { grid-area: n; } .fg-n img { object-position: 50% 55%; }
+.fg-d { grid-area: d; }
+.founder-text .pull { margin-top: 4px; }
+
+.chapters { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 3vw, 36px); margin-top: clamp(56px, 8vw, 96px); }
+.chapter { display: grid; grid-template-columns: 1fr 1fr; align-items: center; background: #fffdf8; border: 1px solid rgba(184, 134, 47, .25); border-radius: 10px; overflow: hidden; box-shadow: 0 30px 60px -42px rgba(40, 28, 12, .6); }
+.chapter figure { margin: 0; height: 100%; aspect-ratio: 4 / 3.4; overflow: hidden; }
+.chapter img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.chapter:hover img { transform: scale(1.06); }
+.chapter > div { padding: clamp(18px, 2.4vw, 30px); }
+.ch-n { display: block; font-family: "Cormorant Garamond", serif; font-size: 2.4rem; line-height: 1; color: var(--gold); margin-bottom: 10px; }
+.chapter p { margin: 0; font-family: var(--serif); font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.45; color: var(--navy); }
+
+.diamond { position: relative; overflow: hidden; padding: clamp(48px, 7vw, 90px) clamp(24px, 5vw, 70px); border: 1px solid rgba(212, 166, 79, .45); background: #081226; border-radius: 12px; }
+.dia-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; }
+.diamond::after { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 90% at 50% 50%, rgba(8, 18, 38, .55), rgba(8, 18, 38, .25) 70%); }
+.dia-text { position: relative; z-index: 1; }
+.diamond .d1 { color: #fbf3e4; font-family: var(--serif); text-transform: none; letter-spacing: 0; font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 600; }
+.diamond .d2 { color: var(--gold-2); text-transform: none; letter-spacing: .02em; font-size: clamp(1rem, 1.8vw, 1.25rem); margin-top: 12px; font-weight: 600; }
+.diamond .d3 { color: #d9d0bf; max-width: 640px; margin: 18px auto 0; }
+
+@media (max-width: 920px) {
+  .fgal { max-width: 560px; margin: 0 auto; width: 100%; }
+  .chapters { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .fgal { gap: 8px; }
+  .fg-main { border-radius: 8px 8px 8px 90px !important; }
+  .chapter { grid-template-columns: 1fr; }
+  .chapter figure { aspect-ratio: 16 / 10; }
+}
+.diamond { text-align: left; }
+.dia-bg { object-position: 75% 50%; opacity: 1; }
+.diamond::after { background: linear-gradient(90deg, rgba(8, 18, 38, .85) 0%, rgba(8, 18, 38, .55) 45%, rgba(8, 18, 38, 0) 75%); }
+.dia-text { max-width: 58%; }
+.diamond .d3 { margin-left: 0; }
+@media (max-width: 760px) {
+  .dia-bg { object-position: 80% 50%; }
+  .diamond::after { background: linear-gradient(180deg, rgba(8, 18, 38, .4), rgba(8, 18, 38, .85)); }
+  .dia-text { max-width: none; }
+}
+.chapter { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: stretch; }
+.chapter figure { aspect-ratio: auto; min-height: 240px; min-width: 0; }
+.chapter > div { align-self: center; }
+@media (max-width: 600px) { .chapter { grid-template-columns: 1fr; } .chapter figure { aspect-ratio: 16 / 10; min-height: 0; } }
