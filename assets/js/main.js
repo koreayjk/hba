@@ -11,13 +11,14 @@
   var nodes = document.querySelectorAll("[data-i18n]");
   nodes.forEach(function (el) { el.dataset.en = el.innerHTML; });
   var lang = "en";
-  function t(key) { return lang === "ko" ? (window.HBA_KO[key] || EN_MSG[key]) : EN_MSG[key]; }
+  var DICT = { ko: window.HBA_KO || {}, es: window.HBA_ES || {} };
+  function t(key) { var d = DICT[lang]; return (d && d[key]) || EN_MSG[key]; }
   function setLang(next) {
-    lang = next === "ko" ? "ko" : "en";
+    lang = DICT[next] ? next : "en";
     document.documentElement.lang = lang;
     nodes.forEach(function (el) {
-      var ko = window.HBA_KO && window.HBA_KO[el.getAttribute("data-i18n")];
-      el.innerHTML = lang === "ko" && ko !== undefined ? ko : el.dataset.en;
+      var d = DICT[lang], v = d && d[el.getAttribute("data-i18n")];
+      el.innerHTML = v !== undefined ? v : el.dataset.en;
     });
     document.querySelectorAll(".lang button").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
@@ -29,7 +30,8 @@
   var saved = null;
   try { saved = localStorage.getItem("hba-lang"); } catch (e) {}
   var param = new URLSearchParams(location.search).get("lang");
-  setLang(param || saved || ((navigator.language || "").toLowerCase().indexOf("ko") === 0 ? "ko" : "en"));
+  var nav2 = (navigator.language || "").toLowerCase().slice(0, 2);
+  setLang(param || saved || (DICT[nav2] ? nav2 : "en"));
   document.querySelectorAll(".lang button").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.dataset.lang); });
   });
