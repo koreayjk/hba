@@ -685,3 +685,11 @@ html[lang="es"] .welcome-word > span { font-size: clamp(2.3rem, 8vw, 6.6rem); }
 html[lang="es"] .paradox p { font-size: clamp(1.1rem, 2.9vw, 2.1rem); }
 html[lang="es"] .iam h2, html[lang="es"] .one-title, html[lang="es"] .tg-title { font-size: clamp(2.3rem, 6.4vw, 5rem); }
 .lang button { padding: 5px 10px; }
+
+/* hero buttons: under the headline on desktop, under the letter photo on phones */
+.cta-mob { display: none; }
+@media (max-width: 820px) {
+  .cta-desk { display: none; }
+  .cta-mob { display: flex; order: 1; padding: 22px 20px 30px; background: linear-gradient(#eadfcd, #efe5d4); }
+  .cta-mob .btn { flex: 1 1 100%; }
+}
